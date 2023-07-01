@@ -23,7 +23,7 @@ const CartContainer = styled.div`
   flex-direction: column;
   align-items: center;
   }
-   @media (max-width: 1500px) {
+   @media (max-width: 1900px) {
    display: flex;
    width: 100%;
    margin-top:30px;
@@ -114,7 +114,7 @@ const CartItem = styled(ListGroup.Item)`
 
    
   }
-    @media (max-width: 1500px) {
+    @media (max-width: 1900px) {
       
     flex-direction: row;
      display: flex;
@@ -158,10 +158,10 @@ const TotalContainer = styled.div`
   }
 
 
- @media (max-width: 1500px) {
+ @media (max-width: 1900px) {
  
   width: 50%;
-  height: 60%;
+  height: 50%;
   display: flex;
   background-color: #3b5998;
   flex-direction: column;
@@ -173,8 +173,8 @@ const TotalContainer = styled.div`
   margin:10px;
   border-radius: 1%;
   border: solid black;
-  margin-right: 20px;
-  margin-left: 250px;
+    margin-right: -273px;
+    margin-left: 169px;
   margin-bottom: 20px;
 }
 

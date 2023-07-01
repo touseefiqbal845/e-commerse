@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { CartState } from "../context/Context";
 import Rating from "./Rating";
 import styled from "styled-components";
+import "./style.css";
 
 const FiltersContainer = styled.div`
   background-color: #fff
@@ -24,6 +25,14 @@ const Title = styled.span`
 const Label = styled.label`
   font-size: 16px;
   margin-right: 10px;
+  @media (max-width: 600px) {
+    font-size: 20px;
+    width:400px;
+    display: flex;
+
+    
+  }
+
 `;
 
 const FilterOption = styled(Form.Check)`
@@ -34,12 +43,45 @@ font-size: 20px;
   input[type="checkbox"] {
     margin-right: 15px;
   }
+ 
+   @media (max-width: 600px) {
+    font-size: 20px;
+    width:400px;
+    margin-bottom:15px;
+    
+    }
+    
+  }
 `;
 
 const ClearFiltersButton = styled(Button)`
-  font-size: 16px;
+
+  font-size: 13px;
   margin-top: 25px;
+  text-align: center;
+
+  
+  @media (max-width: 600px) {
+    font-size: 20px;
+    width: 350px;
+    margin-bottom:50px;
+    margin-top: 5px;
+  }
+  @media (max-width: 400px) {
+    font-size: 20px;
+    width: 280px;
+    margin-bottom:50px;
+    margin-top: 5px;
+  
+  }
+   @media (max-width: 350px) {
+    font-size: 20px;
+    width: 280px;
+    margin-bottom:50px;
+    margin-top: 5px;
+  }
 `;
+
 
 const Filters = () => {
   const {
@@ -106,15 +148,17 @@ const Filters = () => {
       />
       <div>
         <Label>Rating:</Label>
+
         <Rating
           rating={byRating}
+          className="ratingstar"
           onClick={(i) =>
             productDispatch({
               type: "FILTER_BY_RATING",
               payload: i + 1,
             })
           }
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer" ,marginBottom: "14px" }}
         />
       </div>
       <ClearFiltersButton
@@ -127,6 +171,7 @@ const Filters = () => {
       >
         Clear Filters
       </ClearFiltersButton>
+      
     </FiltersContainer>
   );
 };

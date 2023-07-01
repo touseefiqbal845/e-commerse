@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
-import { Button, Col, Form, Image, ListGroup, Row,Badge } from "react-bootstrap";
+import { Button, Col, Form, Image, ListGroup, Row, Badge } from "react-bootstrap";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { CartState } from "../context/Context";
+import Cart from "../Shopping Mall/Cart";
 
 const Nav = () => {
-  const [menuIcon, setMenuIcon] = useState();
-   const {
+  const [menuIcon, setMenuIcon] = useState(false);
+  const navigate = useNavigate();
+  const {
     state: { cart },
     dispatch,
   } = CartState();
-  const [total, setTotal] = useState();
+  const [total, setTotal] = useState(0);
+
   useEffect(() => {
     setTotal(
       cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
     );
   }, [cart]);
-  const Nav = styled.nav`
+
+  const NavContainer = styled.nav`
     .navbar-lists {
       display: flex;
       gap: 4.8rem;
@@ -135,11 +139,21 @@ const Nav = () => {
         transform: translateX(100%);
         /* transform-origin: top; */
         transition: all 3s linear;
+         width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: flex-end; /* Align items to the bottom of the container */
+  align-items: center;
+  flex-direction: column;
       }
 
       .active .navbar-lists {
         visibility: visible;
-        opacity: 1;
+        opacity: 8;
         transform: translateX(0);
         z-index: 999;
         transform-origin: right;
@@ -172,16 +186,31 @@ const Nav = () => {
     }
   `;
 
-  return (
-    
-    <Nav>
+ return (
+    <NavContainer>
+      {menuIcon && <Cart />} {/* Render the Cart component if the menu is active */}
       <div className={menuIcon ? "navbar active" : "navbar"}>
-        <ul className="navbar-lists">
+        <ul className="navbar-lists" style={{}}>
+           {/* <li>
+            <NavLink
+              to="/cart"
+              className="navbar-link cart-trolley--link"
+              onClick={() => {
+                setMenuIcon(false);
+                
+                navigate("/cart"); // Use navigate function to navigate to "/cart" route
+              }}
+            >
+              <FiShoppingCart className="cart-trolley" />
+              <Badge className="cart-badge">{cart.length}</Badge>
+            </NavLink>
+          </li> */}
           <li>
             <NavLink
               to="/"
               className="navbar-link "
-              onClick={() => setMenuIcon(false)}>
+              onClick={() => setMenuIcon(false)}
+            >
               Home
             </NavLink>
           </li>
@@ -189,7 +218,8 @@ const Nav = () => {
             <NavLink
               to="/about"
               className="navbar-link "
-              onClick={() => setMenuIcon(false)}>
+              onClick={() => setMenuIcon(false)}
+            >
               About
             </NavLink>
           </li>
@@ -197,7 +227,8 @@ const Nav = () => {
             <NavLink
               to="/products"
               className="navbar-link "
-              onClick={() => setMenuIcon(false)}>
+              onClick={() => setMenuIcon(false)}
+            >
               Products
             </NavLink>
           </li>
@@ -205,19 +236,27 @@ const Nav = () => {
             <NavLink
               to="/contact"
               className="navbar-link "
-              onClick={() => setMenuIcon(false)}>
+              onClick={() => setMenuIcon(false)}
+            >
               Contact
             </NavLink>
           </li>
           <li>
-            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+            <NavLink
+              to="/cart"
+              className="navbar-link cart-trolley--link"
+              onClick={() => {
+                setMenuIcon(false);
+                navigate("/cart"); // Use navigate function to navigate to "/cart" route
+              }}
+            >
               <FiShoppingCart className="cart-trolley" />
-             <Badge className="cart-badge">{cart.length}</Badge>
+              <Badge className="cart-badge">{cart.length}</Badge>
             </NavLink>
           </li>
         </ul>
 
-        {/* two button for open and close of menu */}
+        {/* Buttons to open and close the menu */}
         <div className="mobile-navbar-btn">
           <CgMenu
             name="menu-outline"
@@ -231,7 +270,7 @@ const Nav = () => {
           />
         </div>
       </div>
-    </Nav>
+    </NavContainer>
   );
 };
 

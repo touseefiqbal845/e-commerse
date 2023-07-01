@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { CartState } from '../context/Context';
 import SingleProduct from './SingleProduct';
-// import "./style.css";
+import "./style.css";
 import Filters from './Filters';
 import styled from 'styled-components';
  
@@ -86,36 +86,115 @@ products {
 summary {
   width: 30%;
 }
-
-/* Media Queries */
-@media (max-width: 771px) {
-  filters {
-    width: 40%;
+@media (max-width: 300px) {
+    flex-direction: row;
+    align-items: center;
+.home{
+      width: 69%;
     padding: 10px;
-    margin: 5px;
-  }
+    margin: 9px;
+    margin-top:12px;
 
-  filters > span {
-    font-size: 10px;
-  }
+    }
 
-  title {
-    font-size: 18px !important;
-  }
-
-  productContainer {
-    width: 58%;
-    padding: 0;
-  }
-
-  search {
-    display: none !important;
-  }
-
-  products {
-    width: 100%;
-  }
+    .productContainer {
+      order: 2;
+      width: 100%;
+      padding: 0;
+      margin-bottom: 0px;
+      margin-top: 500px;
 }
+    }
+
+    .cartItemImg {
+      width: 50%;
+      height: auto;
+      max-width: 150px;
+      max-height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+  }
+/* Media Queries */
+  @media (max-width: 450px) {
+    flex-direction: row;
+    align-items: center;
+
+    filters {
+      order: 1;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+  
+   
+    }
+    .home{
+      width: 69%;
+    padding: 10px;
+    margin: 9px;
+    margin-top:12px;
+
+    }
+
+    .productContainer {
+      order: 2;
+      width: 100%;
+      padding: 0;
+      margin-bottom: 0px;
+      margin-top: 500px;
+}
+    }
+
+    .cartItemImg {
+      width: 30%;
+      height: auto;
+      max-width: 100px;
+      max-height: 100px;
+      backgound-color: blue;
+     
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Media Queries */
+  @media (max-width: 500px) {
+    flex-direction: row;
+    align-items: center;
+
+    filters {
+      order: 1;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+  
+   
+    }
+    .home{
+      width: 69%;
+    padding: 10px;
+    margin: 9px;
+    margin-top:12px;
+
+    }
+
+    .productContainer {
+      order: 2;
+      width: 100%;
+      padding: 0;
+      margin-bottom: 0px;
+      margin-top: 500px;
+}
+    }
+
+    .cartItemImg {
+      width: 50%;
+      height: auto;
+      max-width: 150px;
+      max-height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+  }
 `;
 // Assuming Trusted component is imported here
 
@@ -159,9 +238,11 @@ const Homes = () => {
   };
 
   return (
-       <ProductContainer>
+       <ProductContainer className="mobile">
     <div className="home">
-      <Filters />
+      
+      <Filters  />
+
       <div className="productContainer">
         {transformProducts().map((prod) => (
           <SingleProduct prod={prod} key={prod.id} />

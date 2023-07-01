@@ -17,11 +17,13 @@ const ProductCard = styled(Card)`
 `;
 
 const ProductImage = styled(Card.Img)`
+
   object-fit: cover;
   height: 200px;
   width:331px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+   
 `;
 
 const ProductCardBody = styled(Card.Body)`
@@ -80,8 +82,8 @@ const SingleProduct = ({ prod }) => {
 
   return (
     <div className="products">
-      <ProductCard>
-        <ProductImage variant="top" src={prod.image} alt={prod.name} />
+      <ProductCard className="productcardm">
+        <ProductImage className="imag" variant="top" src={prod.image} alt={prod.name} />
         <ProductCardBody>
           <ProductTitle>{prod.name}</ProductTitle>
           <ProductSubtitle>
@@ -91,7 +93,7 @@ const SingleProduct = ({ prod }) => {
             ) : (
               <div>4 days delivery</div>
             )}
-            <Rating rating={prod.ratings} />
+            <Rating className="classrating" rating={prod.ratings} />
           </ProductSubtitle>
           {isInCart ? (
             <RemoveFromCartButton
@@ -120,6 +122,70 @@ const SingleProduct = ({ prod }) => {
           )}
         </ProductCardBody>
       </ProductCard>
+      <style jsx>
+        {`
+     
+ @media (max-width: 650px) {
+          .imag{
+        height: 117px;
+    width: 156px;
+
+          }
+        @media (max-width: 430px) {
+          .imag{
+             height: 130px;
+          }
+         
+          
+            .products {
+         
+           
+              
+            }
+        
+          }
+            .products {
+              display: flex;
+       
+              flex-direction: column;
+              align-items: center;
+            }
+
+            .productContainer {
+              width: 100%;
+              padding: 0;
+            }
+
+            .home {
+              width: 100%;
+              padding: 10px;
+              margin: 5px;
+            }
+
+            .filters {
+              width: 100%;
+              padding: 10px;
+              margin: 5px;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+            }
+
+            .filters > span {
+              font-size: 25px !important;
+            }
+
+            .title {
+              font-size: 18px !important;
+            }
+
+            .search {
+              display: none !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

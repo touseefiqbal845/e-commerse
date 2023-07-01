@@ -1,4 +1,115 @@
-/* header styles */
+@media (max-width: 430px) {
+  .filterssummary {
+    width: 100%;
+    position: ;
+    top: 60px; /* Adjust this value based on your navbar's height */
+    left: 0;
+    margin: 0;
+   margin-bottom:50px;
+    padding: 10px;
+   
+    margin-top:30px;
+    margin-left: -200px;
+    z-index: 999; /* Adjust the z-index to make sure it appears above other elements */
+    font-size: 12px; /* Adjust the font size as per your requirement */
+  }
+
+  .cartimg {
+    border-radius: 30%;
+    width: 68px;
+    height: 73px;
+    margin-left: 37px;
+    margin-top: 10px;
+    margin-left: -18px;
+  }
+}
+
+
+
+
+@media (max-width: 1000px) {
+  {
+    width: 10%;
+  height: 3%;
+   /* position: absolute; */
+position: fixed;
+  display: flex;
+  background-color: #3b5998;
+    justify-content: flex;
+  margin-left:-350px;
+    padding: 10px;
+      
+
+}
+
+.filterssummary {
+    width: 100%;
+position: absolute;
+    top: 60px; /* Adjust this value based on your navbar's height */
+    left: 0;
+    margin: 0;
+    padding: 10px;
+    margin-left: -145px;
+    z-index: 999; /* Adjust the z-index to make sure it appears above other elements */
+    font-size: 12px; /* Adjust the font size as per your requirement */
+  }
+}
+
+@media (max-width: 360px) {
+  {
+   width: 10%;
+  height: 3%;
+  /* position: absolute; */
+  display: flex;
+  background-color: #3b5998;
+    justify-content: flex;
+  margin-left:-342px;
+    padding: 10px;
+      
+
+}
+
+
+.filterssummary {
+   width: 100%;
+    /* position: fixed; */
+    top: 60px; /* Adjust this value based on your navbar's height */
+    left: 0;
+    margin: 0;
+    padding: 8px;
+    margin-left: -120px;
+    z-index: 999; /* Adjust the z-index to make sure it appears above other elements */
+    font-size: 12px; /* Adjust thAdjust the font size as per your requirement */
+  }
+}
+@media (max-width: 340px) {
+  {
+   width: 10%;
+  height: 3%;
+  /* position: absolute; */
+  display: flex;
+  background-color: #3b5998;
+    justify-content: flex;
+  margin-left:-342px;
+    padding: 10px;
+      
+
+}
+
+
+.filterssummary {
+   width: 100%;
+    /* position: fixed; */
+    top: 60px; /* Adjust this value based on your navbar's height */
+    left: 0;
+    margin: 0;
+    padding: 8px;
+    margin-left: -120px;
+    z-index: 999; /* Adjust the z-index to make sure it appears above other elements */
+    font-size: 12px; /* Adjust thAdjust the font size as per your requirement */
+  }
+}
+
 .cart-container {
   display: flex;
   flex-direction: column;
@@ -83,7 +194,10 @@
   background-color: #FFFFFF;
 
 }
-
+ .title {
+    font-size: 35px !important;
+    color: white;
+  }
 
 .cartItemImg {
   border-radius: 15%;
@@ -140,19 +254,49 @@
 .summary {
   width: 20%;
 }
+.ratingstar {
+  display: flex;
+  flex-direction: row; /* Display in a row */
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 450px) {
+  .fivestar {
+    flex-direction: row; /* Display in a row */
+    margin-bottom: 14px;
+  }
+}
 
 /* Media Queries */
-@media (max-width: 771px) {
+
+ @media (max-width: 700px) {
   .filters {
-    width: 40%;
+    width: 100%;    
     padding: 10px;
     margin: 5px;
   }
-
+.fivestar{
+  display: row;
+}
+  .productcardm{ 
+  display: flex;
+   width: 100%;
+   margin-top:30px;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+ 
+}
+.home{
+  width: 100%;
+    padding: 10px;
+    margin: 5px;
+}
   .filters > span {
-    font-size: 25px !important;
+    font-size: 15px !important;
   }
-
+   
   .title {
     font-size: 18px !important;
   }
@@ -169,7 +313,7 @@
   .products {
     width: 100%;
   }
-}   
+}    
 .cart-badge {
   position: absolute;
   top: 0;
@@ -182,12 +326,12 @@
   border-radius: 50%;
 }
 .btndlt {
-  color: black;
+  color: red;
   width: 80px;
   cursor: pointer;
 }
 
 .btndlt:hover {
 
-   background-color:red;
+   background-color:dark red;
 }
